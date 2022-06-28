@@ -1,0 +1,62 @@
+SPECS FOR LEAF - PLANT GROWING SYSTEM 
+
+Concept: An automatic system for monitoring plants in different rooms that waters them and helps them grow.
+ideal goal: a system that could measure growth rates of plants and use that data to figure out accurate watering, fertalizing, and lighting levels/timings. 
+
+Future ideas: timelapse, soil minerals measurement, fertalizer systems, lighting systems
+
+--------------DASHBOARD:--------------
+
+online web interface with these stats:
+* room temp - graph of hourly room temperature (with weekly averages?)
+* room humidity - graph of hourly humidity (weekly averages)
+* room light levels - graph of hourly light levels
+
+* list of plants with pictures
+	- Soil Moisture Measurement
+	- Name of plant
+	- last water date
+	- adjust soil watering threshhold
+
+
+--------------SOFTWARE:--------------
+
+could potentially do something where arduinos can plug into the plant/room sensors and then connect to a raspberry pi main hub for the dashboard and data management. 
+	- with this users could have multiple rooms with plants and have them all connect over wifi to a raspberry pi.
+
+ARDUINO:
+
+used for keeping track of plant sensors (analogue inputs)
+
+RASPBERRY PI:
+
+used for running the dashboard, could have a touchscreen on it too or a monitor. Could also store historical data and create backups of your plant info.
+
+
+DATA STRUCTURES:
+
+room{
+	var: temp (how often to update? 20 min?)
+	var: humidity (how often to update? 20 min?)
+	array: (plants)
+}
+
+plant{
+	var: last water date
+	var: amount of water to give when watering 
+	var: soil humidity (update hourly or maybe constantly?)
+	var: humidity threshold
+	var: plant name
+	var: plant image (uploaded by user)
+	*******FIGURE OUT GRAPH OF WATER ABSORBTION/data structures for times*******
+} -should this be stored on the pi or the arduino? not sure
+
+
+--------------HARDWARE:--------------
+
+* Arduino Mega (wifi?)
+* pi 4 
+* soil moisture sensors
+* room humidity sensors
+* room temp sensor
+* power supplies for pi and arduino(s)
